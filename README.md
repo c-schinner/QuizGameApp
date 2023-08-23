@@ -3,7 +3,8 @@ This README provides an overview of the structure and functionality of a simple 
 The app is composed of four files: MAIN.py, data.py, question_model.py, and quiz_brain.py. The app presents a series of true or false questions to the user and calculates their final score based on their answers.
 
 # Files
-'MAIN.py'
+# 'MAIN.py'
+
 This file serves as the entry point for the quiz game app. It imports the required modules and implements the main logic for the game.
 
 1. Imports the necessary classes:
@@ -12,37 +13,52 @@ from data import question_data
 from quiz_brain import QuizBrain
 
 2. Creates a list of Question objects from the data provided in question_data:
+
 question_bank = []
+
 for question in question_data:
+
     question_text = question['text']
     question_answer = question['answer']
     new_question = Question(question_text, question_answer)
     question_bank.append(new_question)
 
 3. Initializes a QuizBrain object with the question_bank:
+
 quiz = QuizBrain(question_bank)
 
 4. Implements the game loop that iterates through questions:
+
 while quiz.still_has_questions():
     quiz.next_question()
 
 5. Displays the final score to the user:
+
+
 print("You have finished the Quiz!")
+
 print(f"Your final score is: {quiz.score}/{quiz.question_number}")
 
-'data.py'
+# 'data.py'
+
 This file contains the data used to populate the question bank for the quiz game. It consists of a list of dictionaries, each containing a question text and its corresponding answer.
 
-'question_model.py'
+# 'question_model.py'
+
 This module defines the Question class, which represents individual questions within the quiz.
+
 class Question:
+
     def __init__(self, q_text, q_answer):
         self.text = q_text
         self.answer = q_answer
 
 'quiz_brain.py'
+
 This module contains the QuizBrain class, responsible for managing the quiz's logic and flow.
+
 class QuizBrain:
+
     def __init__(self, q_list):
         # ...
 
